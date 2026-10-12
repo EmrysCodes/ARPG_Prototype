@@ -62,7 +62,8 @@ var CLASSES = {
 }
 
 
-func get_class(class_id: String) -> Dictionary:
+# Named get_class_data (not get_class) — Object.get_class() -> String is reserved.
+func get_class_data(class_id: String) -> Dictionary:
 	return CLASSES.get(class_id, {})
 
 
