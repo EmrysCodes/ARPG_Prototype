@@ -1,0 +1,1114 @@
+[gd_scene load_steps=4 format=3 uid="uid://bextmpk0ap2g"]
+
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_kw0id"]
+[ext_resource type="Texture2D" uid="uid://bptciyhehh7jn" path="res://inv.png" id="2_0yxgl"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_akcnk"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_kw0id")
+
+[node name="InventoryPanel" type="Panel" parent="."]
+material = SubResource("CanvasItemMaterial_akcnk")
+custom_minimum_size = Vector2(500, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -860.0
+offset_right = 500.0
+offset_bottom = 740.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="InventoryPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -496.0
+offset_top = -793.0
+offset_right = 496.0
+offset_bottom = 793.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0yxgl")
+
+[node name="CloseButton" type="Button" parent="InventoryPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.794817
+anchor_top = 0.0575375
+anchor_right = 0.897
+anchor_bottom = 0.123
+offset_left = 2.18297
+offset_top = 2.94
+offset_right = -0.138977
+offset_bottom = -0.585007
+grow_horizontal = 0
+text = "X"
+metadata/_edit_use_anchors_ = true
+
+[node name="EquipmentPanel" type="Control" parent="InventoryPanel"]
+anchors_preset = 0
+offset_right = 70.5
+offset_bottom = 52.5
+
+[node name="helmet" type="Button" parent="InventoryPanel/EquipmentPanel"]
+layout_mode = 1
+offset_left = 419.0
+offset_top = 96.0
+offset_right = 585.0
+offset_bottom = 247.0
+text = "Helmet"
+icon_alignment = 1
+expand_icon = true
+
+[node name="chest" type="Button" parent="InventoryPanel/EquipmentPanel"]
+layout_mode = 1
+offset_left = 384.0
+offset_top = 294.0
+offset_right = 600.0
+offset_bottom = 703.0
+text = "Chest"
+icon_alignment = 1
+expand_icon = true
+
+[node name="weapon" type="Button" parent="InventoryPanel/EquipmentPanel"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 294.0
+offset_right = 304.0
+offset_bottom = 694.0
+text = "Weapon"
+icon_alignment = 1
+expand_icon = true
+
+[node name="offhand" type="Button" parent="InventoryPanel/EquipmentPanel"]
+layout_mode = 1
+offset_left = 677.0
+offset_top = 295.0
+offset_right = 883.0
+offset_bottom = 697.0
+text = "Offhand"
+icon_alignment = 1
+expand_icon = true
+
+[node name="ring1" type="Button" parent="InventoryPanel/EquipmentPanel"]
+layout_mode = 1
+offset_left = 289.0
+offset_top = 764.0
+offset_right = 380.0
+offset_bottom = 849.0
+text = "Ring1"
+icon_alignment = 1
+expand_icon = true
+
+[node name="ring2" type="Button" parent="InventoryPanel/EquipmentPanel"]
+layout_mode = 1
+offset_left = 608.0
+offset_top = 763.0
+offset_right = 695.0
+offset_bottom = 854.0
+text = "Ring2"
+icon_alignment = 1
+expand_icon = true
+
+[node name="amulet" type="Button" parent="InventoryPanel/EquipmentPanel"]
+layout_mode = 1
+offset_left = 632.0
+offset_top = 155.0
+offset_right = 715.0
+offset_bottom = 242.0
+text = "Amulet"
+icon_alignment = 1
+expand_icon = true
+
+[node name="gloves" type="Button" parent="InventoryPanel/EquipmentPanel"]
+layout_mode = 1
+offset_left = 91.0
+offset_top = 779.0
+offset_right = 258.0
+offset_bottom = 958.0
+text = "Gloves"
+icon_alignment = 1
+expand_icon = true
+
+[node name="boots" type="Button" parent="InventoryPanel/EquipmentPanel"]
+layout_mode = 1
+offset_left = 731.0
+offset_top = 784.0
+offset_right = 897.0
+offset_bottom = 957.0
+text = "Boots"
+icon_alignment = 1
+expand_icon = true
+
+[node name="belt" type="Button" parent="InventoryPanel/EquipmentPanel"]
+layout_mode = 1
+offset_left = 412.0
+offset_top = 765.0
+offset_right = 575.0
+offset_bottom = 848.0
+text = "Belt"
+icon_alignment = 1
+expand_icon = true
+
+[node name="BagPanel" type="Control" parent="InventoryPanel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BagGrid" type="GridContainer" parent="InventoryPanel/BagPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 959.5
+offset_right = 980.0
+offset_bottom = 1546.5
+grow_horizontal = 2
+grow_vertical = 0
+columns = 9
+
+[node name="Slot_0" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_1" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_2" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_3" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_4" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_5" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_6" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_7" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_8" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_9" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_10" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_11" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_12" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_13" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_14" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_15" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_16" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_17" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_18" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_19" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_20" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_21" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_22" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_23" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_24" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_25" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_26" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_27" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_28" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_29" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_30" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_31" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_32" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_33" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_34" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_35" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_36" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_37" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_38" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_39" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_40" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_41" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_42" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_43" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot_44" type="Button" parent="InventoryPanel/BagPanel/BagGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Empty"
+icon_alignment = 1
+expand_icon = true
+
+[node name="TooltipPanel" type="Panel" parent="InventoryPanel"]
+visible = false
+layout_mode = 0
+offset_left = 35.5
+offset_top = 135.5
+offset_right = 235.5
+offset_bottom = 585.5
+
+[node name="TooltipContainer" type="GridContainer" parent="InventoryPanel/TooltipPanel"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 450.0
+
+[node name="ItemNameLabel" type="Label" parent="InventoryPanel/TooltipPanel/TooltipContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Name"
+
+[node name="RarityLabel" type="Label" parent="InventoryPanel/TooltipPanel/TooltipContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Rarity"
+
+[node name="TypeLabel" type="Label" parent="InventoryPanel/TooltipPanel/TooltipContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Type"
+
+[node name="StatsLabel" type="Label" parent="InventoryPanel/TooltipPanel/TooltipContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Stats"
+
+[node name="EquipButton" type="Button" parent="InventoryPanel/TooltipPanel/TooltipContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Equip"
+
+[node name="InventoryButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -120.0
+offset_right = -60.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Bag"
+
+[node name="StatusPanel" type="Panel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -310.0
+offset_top = -140.0
+offset_right = 310.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HealthLabel" type="Label" parent="StatusPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -42.5
+offset_right = 129.0
+offset_bottom = 42.5
+grow_vertical = 2
+text = "Health"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ManaLabel" type="Label" parent="StatusPanel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -42.5
+offset_bottom = 42.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Mana"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="StatusPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 0.5
+offset_top = 30.0
+offset_right = 42.5
+offset_bottom = 60.0
+grow_horizontal = 2
+text = "Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoldLabel" type="Label" parent="StatusPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.5
+offset_top = 30.0
+offset_right = -9.5
+offset_bottom = 60.0
+grow_horizontal = 2
+text = "Gold"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="XPBar" type="ProgressBar" parent="StatusPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 30.0
+grow_horizontal = 2
+
+[node name="CharacterButton" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = -120.0
+offset_right = 180.0
+offset_bottom = -30.0
+grow_vertical = 0
+text = "Char"
+
+[node name="CharacterPanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -495.0
+offset_top = -860.0
+offset_right = 505.0
+offset_bottom = 740.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CloseCharacterButton" type="Button" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_top = 45.0
+offset_right = -40.0
+offset_bottom = 125.0
+grow_horizontal = 0
+text = "X"
+
+[node name="LevelText" type="Label" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 45.0
+offset_right = -200.0
+offset_bottom = 145.0
+grow_horizontal = 2
+text = "Level: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 45.0
+offset_right = -100.0
+offset_bottom = 145.0
+grow_horizontal = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExperienceText" type="Label" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 45.0
+offset_right = 80.0
+offset_bottom = 145.0
+grow_horizontal = 2
+text = "Exp: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExperienceLabel" type="Label" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 100.0
+offset_top = 45.0
+offset_right = 200.0
+offset_bottom = 145.0
+grow_horizontal = 2
+text = "15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatPointsText" type="Label" parent="CharacterPanel"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 130.0
+offset_right = 280.0
+offset_bottom = 230.0
+text = "Available stat points:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatPointsLabel" type="Label" parent="CharacterPanel"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 130.0
+offset_right = 500.0
+offset_bottom = 230.0
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StrengthText" type="Label" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -550.0
+offset_right = -320.0
+offset_bottom = -450.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Strength:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StrengthLabel" type="Label" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -550.0
+offset_right = -110.0
+offset_bottom = -450.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StrengthButton" type="Button" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -550.0
+offset_bottom = -450.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"
+
+[node name="DexterityText" type="Label" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -420.0
+offset_right = -320.0
+offset_bottom = -320.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Dexterity:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DexterityLabel" type="Label" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -420.0
+offset_right = -110.0
+offset_bottom = -320.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DexterityButton" type="Button" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -420.0
+offset_bottom = -320.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"
+
+[node name="ViatlityText" type="Label" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -280.0
+offset_right = -320.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Viatltiy:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VitalityLabel" type="Label" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -280.0
+offset_right = -110.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VitalityButton" type="Button" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -280.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"
+
+[node name="DevotionText" type="Label" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -140.0
+offset_right = -320.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Devotion:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DevotionLabel" type="Label" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -140.0
+offset_right = -110.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DevotionButton" type="Button" parent="CharacterPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -140.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"
+
+[node name="ClassText" type="Label" parent="CharacterPanel"]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+text = "Class"
+vertical_alignment = 1
+
+[node name="ClassLabel" type="Label" parent="CharacterPanel"]
+layout_mode = 1
+offset_left = 200.0
+offset_top = 40.0
+offset_right = 480.0
+offset_bottom = 80.0
+text = "Veilwalker"
+vertical_alignment = 1
+
+[node name="SkillsButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -120.0
+offset_right = -180.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Skills"
+
+[node name="SummonSkeletonButton" type="Button" parent="StatusPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -10.0
+offset_right = 70.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Raise"
+
+[node name="SkillsPanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -860.0
+offset_right = 500.0
+offset_bottom = 740.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CloseSkillsButton" type="Button" parent="SkillsPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_top = 45.0
+offset_right = -40.0
+offset_bottom = 125.0
+grow_horizontal = 0
+text = "X"
+
+[node name="SkillsTitle" type="Label" parent="SkillsPanel"]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 50.0
+offset_right = 420.0
+offset_bottom = 110.0
+theme_override_font_sizes/font_size = 36
+text = "Skills"
+vertical_alignment = 1
+
+[node name="SkillPointsText" type="Label" parent="SkillsPanel"]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 120.0
+offset_right = 280.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 24
+text = "Skill Points:"
+vertical_alignment = 1
+
+[node name="SkillPointsLabel" type="Label" parent="SkillsPanel"]
+layout_mode = 1
+offset_left = 280.0
+offset_top = 120.0
+offset_right = 380.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 24
+text = "0"
+vertical_alignment = 1
+
+[node name="ClassSkillLabel" type="Label" parent="SkillsPanel"]
+layout_mode = 1
+offset_left = 420.0
+offset_top = 120.0
+offset_right = 920.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 24
+text = "Veilwalker"
+vertical_alignment = 1
+horizontal_alignment = 2
+
+[node name="SkillScroll" type="ScrollContainer" parent="SkillsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 190.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="SkillList" type="VBoxContainer" parent="SkillsPanel/SkillScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12

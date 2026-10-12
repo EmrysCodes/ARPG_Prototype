@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbc205ty8ee7j"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_p0vlq"]
+[ext_resource type="Script" path="res://scripts/inventory/inventory.gd" id="2_gfjak"]
+[ext_resource type="Script" path="res://scripts/player/player_stats.gd" id="3_stats"]
+[ext_resource type="Script" path="res://scripts/player/player_skills.gd" id="4_skills"]
+[ext_resource type="PackedScene" path="res://scenes/minions/SkeletonMinion.tscn" id="5_skel"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5q5h1"]
+albedo_color = Color(0.305878, 0.478424, 0.152939, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5q5h1"]
+material = SubResource("StandardMaterial3D_5q5h1")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5q5h1"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_p0vlq")
+skeleton_minion_scene = ExtResource("5_skel")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_5q5h1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_5q5h1")
+
+[node name="Inventory" type="Node3D" parent="."]
+script = ExtResource("2_gfjak")
+
+[node name="PlayerStats" type="Node3D" parent="."]
+script = ExtResource("3_stats")
+default_class_id = "veilwalker"
+
+[node name="PlayerSkills" type="Node" parent="."]
+script = ExtResource("4_skills")

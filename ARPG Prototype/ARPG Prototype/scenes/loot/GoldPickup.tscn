@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqxycfua8tkev"]
+
+[ext_resource type="Script" uid="uid://cukhxlj5etfnf" path="res://scripts/loot/goldpickup.gd" id="1_k18f3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0pkes"]
+albedo_color = Color(0.60783386, 0.64704895, 0.054901123, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k18f3"]
+material = SubResource("StandardMaterial3D_0pkes")
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r2q37"]
+height = 0.1
+radius = 0.25
+
+[node name="Loot" type="Area3D" groups=["loot"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39117432, 0)
+script = ExtResource("1_k18f3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_k18f3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_r2q37")

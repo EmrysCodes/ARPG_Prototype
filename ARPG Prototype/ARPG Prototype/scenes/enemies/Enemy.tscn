@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck7cpdbs6dux0"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_3gvst"]
+[ext_resource type="Script" path="res://scripts/loot/loot_dropper.gd" id="2_k7o7a"]
+[ext_resource type="PackedScene" path="res://scenes/skills/Corpse.tscn" id="3_corpse"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3gvst"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2qkhh"]
+material = SubResource("StandardMaterial3D_3gvst")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2qkhh"]
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_3gvst")
+max_health = 15
+corpse_scene = ExtResource("3_corpse")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_2qkhh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_2qkhh")
+
+[node name="LootDropper" type="Node3D" parent="."]
+script = ExtResource("2_k7o7a")
+item_drop_chance = 100
+rare_bonus = 15
