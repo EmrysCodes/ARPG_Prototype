@@ -2,17 +2,27 @@
 
 This project is an original Diablo-inspired ARPG prototype. It does **not** include Blizzard / Diablo trademarks, logos, ripped game files, or exact proprietary fonts.
 
-## Characters
+## Characters (current visuals)
 
-| Asset | Use | Source | License |
-| --- | --- | --- | --- |
-| `assets/characters/player/veilwalker.glb` (+ texture) | Player visual (Veilwalker) | [Kenney Blocky Characters 2.0](https://www.kenney.nl/assets/blocky-characters) (`character-m`) | **CC0 1.0** — see `assets/characters/licenses/KENNEY_BLOCKY_CHARACTERS_LICENSE.txt` |
-| `assets/characters/enemy/dungeon_brute.glb` (+ texture) | Enemy visual | Kenney Blocky Characters 2.0 (`character-r`) | **CC0 1.0** |
-| `assets/characters/minion/skeleton_minion.glb` (+ texture) | Raise Skeleton minion | [KayKit Character Pack — Skeletons](https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Skeletons-1.0) (`Skeleton_Minion`) by Kay Lousberg | **CC0 1.0** — see `assets/characters/licenses/KAYKIT_SKELETONS_LICENSE.txt` |
+Player, enemy, and skeleton minion visuals are **original procedural MeshInstance3D assemblies** built at runtime by `scripts/visual/model_loader.gd` (capsules / boxes / spheres with `StandardMaterial3D`). No third-party character meshes are required at runtime.
 
-Capsule placeholders remain in scenes as fallbacks if a GLB fails to import; `scripts/visual/model_loader.gd` hides them when the GLB loads.
+| Role | Style enum | Look |
+| --- | --- | --- |
+| Player | `VEILWALKER` | Hooded purple caster + staff gem |
+| Enemy | `BRUTE` | Red bulky fighter + iron helm/horns |
+| Minion | `SKELETON` | Bone limbs + glowing green eyes |
 
-**Animation follow-up:** Kenney/KayKit packs include animations. This pass wires static meshes (idle pose from GLB). Hooking AnimationPlayer walk/attack clips is deferred.
+Capsule placeholders remain in scenes as editor fallbacks; the builder hides them when the procedural mesh is ready.
+
+## Archived CC0 GLBs (unused at runtime)
+
+Earlier Kenney / KayKit GLBs remain under `assets/characters/` for reference but are **not loaded**. On Xogot 4.7 they imported as white untextured blocks / T-poses (external texture URIs + required `KHR_materials_unlit`).
+
+| Asset | Source | License |
+| --- | --- | --- |
+| `assets/characters/player/veilwalker.glb` (+ texture) | [Kenney Blocky Characters 2.0](https://www.kenney.nl/assets/blocky-characters) | **CC0 1.0** — `assets/characters/licenses/KENNEY_BLOCKY_CHARACTERS_LICENSE.txt` |
+| `assets/characters/enemy/dungeon_brute.glb` (+ texture) | Kenney Blocky Characters 2.0 | **CC0 1.0** |
+| `assets/characters/minion/skeleton_minion.glb` (+ texture) | [KayKit Skeletons](https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Skeletons-1.0) | **CC0 1.0** — `assets/characters/licenses/KAYKIT_SKELETONS_LICENSE.txt` |
 
 ## Fonts
 
@@ -25,9 +35,9 @@ Capsule placeholders remain in scenes as fallbacks if a GLB fails to import; `sc
 
 | Asset | Notes |
 | --- | --- |
-| `assets/ui/*.png` | Original HUD chrome (orbs, belt, skill slot, icons) generated for this pass |
-| `assets/dungeon/stone_floor.png`, `stone_wall.png` | Original dungeon tiles generated for this pass |
-| `assets/icons/items/*`, `inv.png`, `assets/level_01.png` | Pre-existing prototype art |
+| `assets/ui/*.png` | Original HUD chrome (orbs, belt, skill slot, panel frame) |
+| `assets/dungeon/stone_floor.png`, `stone_wall.png` | Original dungeon tiles (brightened for readability) |
+| `assets/icons/items/*`, `inv.png`, `assets/level_01.png` | Pre-existing prototype art (`inv.png` no longer used as panel chrome) |
 
 ## Inspiration (no assets copied)
 

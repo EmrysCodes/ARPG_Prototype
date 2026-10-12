@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bextmpk0ap2g"]
 
 [ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_kw0id"]
-[ext_resource type="Texture2D" path="res://inv.png" id="2_0yxgl"]
+[ext_resource type="Texture2D" path="res://assets/ui/panel_bg.png" id="2_panel"]
 [ext_resource type="Texture2D" path="res://assets/ui/belt_chrome.png" id="3_belt"]
 [ext_resource type="Texture2D" path="res://assets/ui/orb_life.png" id="4_life"]
 [ext_resource type="Texture2D" path="res://assets/ui/orb_mana.png" id="5_mana"]
@@ -269,20 +269,21 @@ grow_vertical = 2
 theme = ExtResource("8_theme")
 
 [node name="TextureRect" type="TextureRect" parent="InventoryPanel"]
-modulate = Color(1, 1, 1, 0.35)
+modulate = Color(1, 1, 1, 0.72)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = 12.0
-offset_right = -12.0
-offset_bottom = -12.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_0yxgl")
+mouse_filter = 2
+texture = ExtResource("2_panel")
 expand_mode = 1
-stretch_mode = 5
+stretch_mode = 1
 
 [node name="Title" type="Label" parent="InventoryPanel"]
 layout_mode = 0
@@ -814,6 +815,23 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("8_theme")
 
+[node name="CharacterBg" type="TextureRect" parent="CharacterPanel"]
+modulate = Color(1, 1, 1, 0.72)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_panel")
+expand_mode = 1
+stretch_mode = 1
+
 [node name="CloseCharacterButton" type="Button" parent="CharacterPanel"]
 layout_mode = 1
 anchors_preset = 1
@@ -1004,6 +1022,23 @@ offset_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("8_theme")
+
+[node name="SkillsBg" type="TextureRect" parent="SkillsPanel"]
+modulate = Color(1, 1, 1, 0.72)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_panel")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="CloseSkillsButton" type="Button" parent="SkillsPanel"]
 layout_mode = 1

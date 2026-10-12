@@ -24,8 +24,19 @@ var floor_number: int = 1
 var enemies_alive: int = 0
 
 func _ready():
+	_force_landscape()
 	spawn_player()
 	load_room()
+
+
+func _force_landscape() -> void:
+	# Xogot / iOS can ignore project.godot alone; pin landscape at runtime too.
+	DisplayServer.screen_set_orientation(DisplayServer.SCREEN_SENSOR_LANDSCAPE)
+	var win := get_window()
+	if win:
+		win.content_scale_size = Vector2i(1920, 1080)
+		win.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+		win.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
 
 func spawn_player():
 	player = PLAYER_SCENE.instantiate()
