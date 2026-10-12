@@ -12,7 +12,7 @@ config_version=5
 
 config/name="ARPG Prototype"
 run/main_scene="res://scenes/Main.tscn"
-config/features=PackedStringArray("4.2", "Mobile")
+config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
@@ -41,43 +41,6 @@ renderer/rendering_method="gl_compatibility"
 
 [xogot]
 
-project/editorState=[{
-"column": 20,
-"line": 627,
-"path": "res://scripts/ui/hud.gd",
-"type": "file"
-}, {
-"column": 0,
-"line": 142,
-"path": "res://scripts/player.gd",
-"type": "file"
-}, {
-"column": 0,
-"line": 291,
-"path": "res://scripts/inventory/inventory.gd",
-"type": "file"
-}, {
-"column": 35,
-"line": 55,
-"path": "res://scripts/enemy.gd",
-"type": "file"
-}, {
-"column": 0,
-"line": 37,
-"path": "res://scripts/main.gd",
-"type": "file"
-}, {
-"column": 43,
-"current": true,
-"line": 94,
-"path": "res://scripts/loot/itempickup.gd",
-"type": "file"
-}, {
-"column": 0,
-"line": 85,
-"path": "res://scripts/loot/loot_dropper.gd",
-"type": "file"
-}]
 project/breakpoints={}
 project/xogot_game_id="3552_rouelike-prototype"
 

@@ -1,7 +1,24 @@
 # ARPG Prototype
 
-Godot 4.2 / Xogot mobile ARPG prototype (Diablo-inspired).
+Mobile Diablo-inspired 3D ARPG for **Xogot 4.7** (Godot 4.7) / Godot 4.7.
 
-**Open in editor:** `ARPG Prototype/ARPG Prototype/project.godot`
+## Open in Xogot 4.7
 
-This repository receives the full game dump plus the class/skill system (Veilwalker Raise Skeleton, skill trees, HUD skill UI). Source of the game dump was `EmrysCodes/ARPGPrototype`; Cursor cloud write access lands here on `ARPG_Prototype`.
+1. Clone or pull this repo (`main`).
+2. In Xogot, open **`project.godot` at the repository root** (not a nested folder).
+3. Run the main scene (`scenes/Main.tscn`) — portrait 1080×1920.
+
+## What’s included
+
+- Tap-to-move dungeon rooms, inventory, loot, character stats
+- Five classes with full skill trees (default **Veilwalker**)
+- Raise Skeleton: kill enemies → corpses → **Raise** button / **R** → skeleton minions
+
+## Repo layout
+
+```
+project.godot          ← open this
+scenes/
+scripts/
+assets/
+```

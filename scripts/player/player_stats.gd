@@ -251,9 +251,9 @@ func recalculate_stats(full_heal: bool = false):
 		current_mana = max_mana
 	else:
 		if old_max_health > 0:
-			current_health = mini(max_health, current_health + (max_health - old_max_health))
+			current_health = mini(max_health, current_health + max_health - old_max_health)
 		if old_max_mana > 0:
-			current_mana = mini(max_mana, current_mana + (max_mana - old_max_mana))
+			current_mana = mini(max_mana, current_mana + max_mana - old_max_mana)
 
 	current_health = clamp(current_health, 0, max_health)
 	current_mana = clamp(current_mana, 0, max_mana)
