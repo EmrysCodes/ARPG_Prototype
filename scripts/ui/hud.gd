@@ -37,10 +37,13 @@ extends CanvasLayer
 @onready var gold_label = get_node_or_null("StatusPanel/GoldLabel")
 @onready var xp_bar = get_node_or_null("StatusPanel/XPBar")
 @onready var xp_label = get_node_or_null("StatusPanel/XPLabel")
+@onready var life_orb = get_node_or_null("StatusPanel/LifeOrb")
+@onready var mana_orb = get_node_or_null("StatusPanel/ManaOrb")
 
 @onready var summon_skeleton_button = get_first_node([
 	"SummonSkeletonButton",
 	"StatusPanel/SummonSkeletonButton",
+	"StatusPanel/SkillBar/SummonSkeletonButton",
 	"StatusBar/SummonSkeletonButton"
 ])
 
@@ -249,10 +252,18 @@ func refresh_status():
 
 	if stats:
 		if health_label:
-			health_label.text = "HP: " + str(stats.current_health) + "/" + str(stats.max_health)
+			health_label.text = str(stats.current_health) + "/" + str(stats.max_health)
 
 		if mana_label:
-			mana_label.text = "MP: " + str(stats.current_mana) + "/" + str(stats.max_mana)
+			mana_label.text = str(stats.current_mana) + "/" + str(stats.max_mana)
+
+		if life_orb:
+			life_orb.max_value = max(1, stats.max_health)
+			life_orb.value = stats.current_health
+
+		if mana_orb:
+			mana_orb.max_value = max(1, stats.max_mana)
+			mana_orb.value = stats.current_mana
 
 		if level_label:
 			level_label.text = "Lv. " + str(stats.level)
@@ -271,7 +282,7 @@ func refresh_status():
 			summon_skeleton_button.disabled = not is_veilwalker
 
 	if inventory and gold_label:
-		gold_label.text = "Gold: " + str(inventory.gold)
+		gold_label.text = str(inventory.gold) + " Gold"
 
 
 func refresh_character_panel():
@@ -790,11 +801,16 @@ func show_tooltip(item_data, slot_button):
 
 	tooltip_panel.visible = true
 
+	var rarity_name = str(item_data.get("rarity", "Common"))
+	var rarity_color = RarityColors.for_rarity(rarity_name)
+
 	if item_name_label:
 		item_name_label.text = item_data["item_name"]
+		item_name_label.add_theme_color_override("font_color", rarity_color)
 
 	if rarity_label:
-		rarity_label.text = item_data["rarity"]
+		rarity_label.text = rarity_name
+		rarity_label.add_theme_color_override("font_color", rarity_color)
 
 	if type_label:
 		type_label.text = item_data["item_type"]

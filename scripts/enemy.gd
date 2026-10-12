@@ -10,6 +10,9 @@ var is_dead: bool = false
 
 @onready var mesh: MeshInstance3D = $BodyMesh
 @onready var loot_dropper = $LootDropper
+@onready var visual = get_node_or_null("Visual")
+
+var _base_flash_color: Color = Color(0.45, 0.18, 0.12, 1)
 
 
 func _ready():
@@ -18,6 +21,9 @@ func _ready():
 	# Chat pastes also used singular "enemy"; keep both for skill/minion lookups.
 	add_to_group("enemy")
 	randomize()
+
+	if mesh and mesh.get_active_material(0):
+		_base_flash_color = mesh.get_active_material(0).albedo_color
 
 
 func take_damage(amount: int, attacker = null):
@@ -97,22 +103,29 @@ func spawn_corpse():
 
 
 func flash():
-	if mesh == null:
+	var flash_mesh := mesh
+	if visual and visual.has_method("get_flash_mesh"):
+		var loaded = visual.get_flash_mesh()
+		if loaded:
+			flash_mesh = loaded
+
+	if flash_mesh == null:
 		print("ERROR: Enemy is missing BodyMesh.")
 		return
 
-	var mat = mesh.get_active_material(0)
+	var mat = flash_mesh.get_active_material(0)
 
 	if mat == null:
 		print("No material on enemy mesh!")
 		return
 
 	mat = mat.duplicate()
-	mesh.set_surface_override_material(0, mat)
+	flash_mesh.set_surface_override_material(0, mat)
 
-	mat.albedo_color = Color(1, 0.2, 0.2)
+	var restore = mat.albedo_color
+	mat.albedo_color = Color(1, 0.25, 0.2)
 
 	await get_tree().create_timer(0.1).timeout
 
-	if is_instance_valid(mesh):
-		mat.albedo_color = Color(1, 1, 1)
+	if is_instance_valid(flash_mesh) and is_instance_valid(mat):
+		mat.albedo_color = restore

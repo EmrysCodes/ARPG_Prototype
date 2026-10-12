@@ -1,16 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://vmq2eikayihi"]
+[gd_scene load_steps=5 format=3 uid="uid://vmq2eikayihi"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_rvslj"]
 [ext_resource type="PackedScene" uid="uid://bextmpk0ap2g" path="res://scenes/ui/HUD.tscn" id="2_rvslj"]
 
+[sub_resource type="Environment" id="Environment_gothic"]
+background_mode = 1
+background_color = Color(0.035, 0.028, 0.022, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.22, 0.18, 0.16, 1)
+ambient_light_energy = 0.55
+tonemap_mode = 2
+glow_enabled = false
+fog_enabled = true
+fog_light_color = Color(0.08, 0.06, 0.05, 1)
+fog_density = 0.012
+fog_aerial_perspective = 0.15
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_rvslj")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gothic")
 
 [node name="CameraRig" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
-transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 15, 0)
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 16.5, 4.5)
+projection = 0
 current = true
+fov = 42.0
+environment = SubResource("Environment_gothic")
 
 [node name="CurrentRoomHolder" type="Node3D" parent="."]
 

@@ -1,15 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck7cpdbs6dux0"]
+[gd_scene load_steps=8 format=3 uid="uid://ck7cpdbs6dux0"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_3gvst"]
 [ext_resource type="Script" path="res://scripts/loot/loot_dropper.gd" id="2_k7o7a"]
 [ext_resource type="PackedScene" path="res://scenes/skills/Corpse.tscn" id="3_corpse"]
+[ext_resource type="Script" path="res://scripts/visual/model_loader.gd" id="4_loader"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3gvst"]
+albedo_color = Color(0.45, 0.18, 0.12, 1)
+roughness = 0.9
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2qkhh"]
 material = SubResource("StandardMaterial3D_3gvst")
+radius = 0.35
+height = 1.55
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2qkhh"]
+radius = 0.35
+height = 1.55
 
 [node name="Enemy" type="CharacterBody3D"]
 script = ExtResource("1_3gvst")
@@ -17,12 +24,18 @@ max_health = 15
 corpse_scene = ExtResource("3_corpse")
 
 [node name="BodyMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78, 0)
 mesh = SubResource("CapsuleMesh_2qkhh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78, 0)
 shape = SubResource("CapsuleShape3D_2qkhh")
+
+[node name="Visual" type="Node3D" parent="."]
+script = ExtResource("4_loader")
+model_path = "res://assets/characters/enemy/dungeon_brute.glb"
+model_scale = Vector3(1.2, 1.2, 1.2)
+model_yaw_degrees = 180.0
 
 [node name="LootDropper" type="Node3D" parent="."]
 script = ExtResource("2_k7o7a")

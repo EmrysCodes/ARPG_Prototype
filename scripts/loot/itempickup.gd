@@ -78,18 +78,13 @@ func pickup(body):
 
 func set_color_by_rarity():
 	var mesh = $MeshInstance3D
+	if mesh == null:
+		return
+
 	var mat = StandardMaterial3D.new()
-
-	match rarity:
-		"Common":
-			mat.albedo_color = Color(1, 1, 1)
-		"Rare":
-			mat.albedo_color = Color(0.2, 0.4, 1)
-		"Epic":
-			mat.albedo_color = Color(0.6, 0.2, 1)
-		"Legendary":
-			mat.albedo_color = Color(1, 0.5, 0)
-		_:
-			mat.albedo_color = Color(1, 1, 1)
-
+	mat.albedo_color = RarityColors.for_rarity(rarity)
+	mat.emission_enabled = rarity != "Common"
+	mat.emission = mat.albedo_color * 0.45
+	mat.emission_energy_multiplier = 1.4 if rarity == "Legendary" else 0.8
+	mat.roughness = 0.35
 	mesh.set_surface_override_material(0, mat)

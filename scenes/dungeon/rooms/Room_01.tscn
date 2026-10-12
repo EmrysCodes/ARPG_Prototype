@@ -1,7 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://1jbxah0h5677"]
+[gd_scene load_steps=15 format=3 uid="uid://1jbxah0h5677"]
+[ext_resource type="Texture2D" path="res://assets/dungeon/stone_floor.png" id="tex_floor"]
+[ext_resource type="Texture2D" path="res://assets/dungeon/stone_wall.png" id="tex_wall"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxg2q"]
-albedo_color = Color(0.345093, 0.199997, 0, 1)
+albedo_color = Color(0.55, 0.48, 0.4, 1)
+albedo_texture = ExtResource("tex_floor")
+uv1_scale = Vector3(8, 8, 8)
+roughness = 0.92
 
 [sub_resource type="BoxMesh" id="BoxMesh_hu0mk"]
 material = SubResource("StandardMaterial3D_rxg2q")
@@ -32,7 +37,10 @@ size = Vector3(0.5, 2, 20)
 radius = 1.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhytd"]
-albedo_color = Color(0.00392151, 0.431366, 0.560776, 1)
+albedo_color = Color(0.85, 0.55, 0.12, 1)
+emission_enabled = true
+emission = Color(0.95, 0.55, 0.1, 1)
+emission_energy_multiplier = 2.2
 
 [sub_resource type="SphereMesh" id="SphereMesh_8yvcx"]
 material = SubResource("StandardMaterial3D_nhytd")
@@ -88,7 +96,27 @@ mesh = SubResource("BoxMesh_rarhs")
 shape = SubResource("BoxShape3D_vcsgt")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.0118505, 0.99993, 7.56095e-10, 0.0131934, 0.000156359, 0.999913, 0.999843, 0.0118495, -0.0131943, 0, 32.3633, 0)
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 4, 18, 6)
+light_color = Color(1, 0.82, 0.62, 1)
+light_energy = 0.55
+shadow_enabled = false
+
+[node name="FillLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, 0.612372, -0.612372, -6, 12, -4)
+light_color = Color(0.35, 0.45, 0.7, 1)
+light_energy = 0.25
+
+[node name="TorchA" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.2, -8)
+light_color = Color(1, 0.55, 0.2, 1)
+light_energy = 1.8
+omni_range = 10.0
+
+[node name="TorchB" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.2, 6)
+light_color = Color(1, 0.45, 0.15, 1)
+light_energy = 1.5
+omni_range = 9.0
 
 [node name="SpawnPoints" type="Node3D" parent="."]
 
